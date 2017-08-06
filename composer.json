@@ -1,0 +1,12 @@
+{
+    "name": "gplcart/jquery_mobile",
+    "type": "gplcart-module",
+    "description": "Adds Jquery Mobile library for other GplCart modules",
+    "keywords": ["gplcart", "ecommerce", "shopping cart", "gplcart module", "php", "jquery mobile"],
+    "license": "GPL-3.0+",
+    "require": {
+        "gplcart/composer-module-installer": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
