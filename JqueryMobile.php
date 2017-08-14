@@ -36,7 +36,7 @@ class JqueryMobile extends Module
             'description' => 'A HTML5-based user interface system designed to make responsive web sites and apps that are accessible on all smartphone, tablet and desktop devices',
             'type' => 'asset',
             'module' => 'jquery_mobile',
-            'url' => 'jquerymobile.com',
+            'url' => 'http://jquerymobile.com',
             'download' => 'http://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip',
             'version_source' => array(
                 'file' => 'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.js',
@@ -45,7 +45,7 @@ class JqueryMobile extends Module
             ),
             'files' => array(
                 'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.js',
-                'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.css',
+                'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.css'
             ),
         );
     }
@@ -55,12 +55,10 @@ class JqueryMobile extends Module
      */
     public function hookModuleInstallBefore(&$result)
     {
-        foreach (array('jquery' => '1.8.0', 'jquery_ui' => '1.10') as $id => $version) {
-            $library = $this->getLibrary()->get($id);
-            if (version_compare($library['version'], $version, '<')) {
-                $result = $this->getLanguage()->text('Jquery Mobile requires Jquery >= 1.8.0 and Jquery UI >= 1.10');
-                break;
-            }
+        $library = $this->getLibrary()->get('jquery');
+
+        if (version_compare($library['version'], '1.8.0', '<')) {
+            $result = $this->getLanguage()->text('Jquery Mobile requires Jquery >= 1.8.0');
         }
     }
 
