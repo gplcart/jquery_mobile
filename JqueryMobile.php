@@ -52,6 +52,7 @@ class JqueryMobile extends Module
 
     /**
      * Implements hook "module.install.before"
+     * @param null|string
      */
     public function hookModuleInstallBefore(&$result)
     {
