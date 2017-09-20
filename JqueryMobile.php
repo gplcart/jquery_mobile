@@ -32,8 +32,8 @@ class JqueryMobile extends Module
     public function hookLibraryList(array &$libraries)
     {
         $libraries['jquery_mobile'] = array(
-            'name' => 'Jquery Mobile',
-            'description' => 'A HTML5-based user interface system designed to make responsive web sites and apps that are accessible on all smartphone, tablet and desktop devices',
+            'name' => /* @text */'Jquery Mobile',
+            'description' => /* @text */'A HTML5-based user interface system designed to make responsive web sites and apps that are accessible on all smartphone, tablet and desktop devices',
             'type' => 'asset',
             'module' => 'jquery_mobile',
             'url' => 'http://jquerymobile.com',
