@@ -58,7 +58,6 @@ class JqueryMobile extends Module
     public function hookModuleInstallBefore(&$result)
     {
         $library = $this->getLibrary()->get('jquery');
-
         if (version_compare($library['version'], '1.8.0', '<')) {
             $result = $this->getLanguage()->text('Jquery Mobile requires Jquery >= 1.8.0');
         }
