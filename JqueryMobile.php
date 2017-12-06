@@ -9,21 +9,27 @@
 
 namespace gplcart\modules\jquery_mobile;
 
-use gplcart\core\Module,
-    gplcart\core\Config;
+use gplcart\core\Library,
+    gplcart\core\Container;
 
 /**
  * Main class for Jquery Mobile module
  */
-class JqueryMobile extends Module
+class JqueryMobile
 {
 
     /**
-     * @param Config $config
+     * Library class instance
+     * @var \gplcart\core\Library $library
      */
-    public function __construct(Config $config)
+    protected $library;
+
+    /**
+     * @param Library $library
+     */
+    public function __construct(Library $library)
     {
-        parent::__construct($config);
+        $this->library = $library;
     }
 
     /**
@@ -57,10 +63,7 @@ class JqueryMobile extends Module
      */
     public function hookModuleInstallBefore(&$result)
     {
-        $library = $this->getLibrary()->get('jquery');
-        if (version_compare($library['version'], '1.8.0', '<')) {
-            $result = $this->getLanguage()->text('Jquery Mobile requires Jquery >= 1.8.0');
-        }
+        $this->checkJqueryVersion($result);
     }
 
     /**
@@ -68,7 +71,7 @@ class JqueryMobile extends Module
      */
     public function hookModuleEnableAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
@@ -76,7 +79,7 @@ class JqueryMobile extends Module
      */
     public function hookModuleDisableAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
@@ -84,7 +87,7 @@ class JqueryMobile extends Module
      */
     public function hookModuleInstallAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
@@ -92,7 +95,28 @@ class JqueryMobile extends Module
      */
     public function hookModuleUninstallAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
+    }
+
+    /**
+     * Check Jquery version
+     * @param mixed $result
+     */
+    protected function checkJqueryVersion(&$result)
+    {
+        $library = $this->library->get('jquery');
+        if (version_compare($library['version'], '1.8.0', '<')) {
+            $result = $this->getLanguage()->text('Jquery Mobile requires Jquery >= 1.8.0');
+        }
+    }
+
+    /**
+     * Language model class instance
+     * @return \gplcart\core\models\Language
+     */
+    protected function getLanguage()
+    {
+        return Container::get('gplcart\\core\\models\\Language');
     }
 
 }
