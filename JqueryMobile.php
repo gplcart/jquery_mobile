@@ -106,17 +106,17 @@ class JqueryMobile
     {
         $library = $this->library->get('jquery');
         if (version_compare($library['version'], '1.8.0', '<')) {
-            $result = $this->getLanguage()->text('Jquery Mobile requires Jquery >= 1.8.0');
+            $result = $this->getTranslationModel()->text('Jquery Mobile requires Jquery >= 1.8.0');
         }
     }
 
     /**
-     * Language model class instance
-     * @return \gplcart\core\models\Language
+     * Translation UI model class instance
+     * @return \gplcart\core\models\Translation
      */
-    protected function getLanguage()
+    protected function getTranslationModel()
     {
-        return Container::get('gplcart\\core\\models\\Language');
+        return Container::get('gplcart\\core\\models\\Translation');
     }
 
 }
