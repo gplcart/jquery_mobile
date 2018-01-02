@@ -15,7 +15,7 @@ use gplcart\core\Library,
 /**
  * Main class for Jquery Mobile module
  */
-class Module
+class Main
 {
 
     /**
