@@ -9,8 +9,7 @@
 
 namespace gplcart\modules\jquery_mobile;
 
-use gplcart\core\Library,
-    gplcart\core\Container;
+use gplcart\core\Library;
 
 /**
  * Main class for Jquery Mobile module
@@ -39,8 +38,8 @@ class Main
     public function hookLibraryList(array &$libraries)
     {
         $libraries['jquery_mobile'] = array(
-            'name' => /* @text */'Jquery Mobile',
-            'description' => /* @text */'A HTML5-based user interface system designed to make responsive web sites and apps that are accessible on all smartphone, tablet and desktop devices',
+            'name' => 'Jquery Mobile', // @text
+            'description' => 'A HTML5-based user interface system designed to make responsive web sites and apps that are accessible on all smartphone, tablet and desktop devices', // @text
             'type' => 'asset',
             'module' => 'jquery_mobile',
             'url' => 'http://jquerymobile.com',
@@ -105,18 +104,10 @@ class Main
     protected function checkJqueryVersion(&$result)
     {
         $library = $this->library->get('jquery');
-        if (version_compare($library['version'], '1.8.0', '<')) {
-            $result = $this->getTranslationModel()->text('Jquery Mobile requires Jquery >= 1.8.0');
-        }
-    }
 
-    /**
-     * Translation UI model class instance
-     * @return \gplcart\core\models\Translation
-     */
-    protected function getTranslationModel()
-    {
-        return Container::get('gplcart\\core\\models\\Translation');
+        if (version_compare($library['version'], '1.8.0', '<')) {
+            $result = gplcart_text('Jquery Mobile requires Jquery >= 1.8.0');
+        }
     }
 
 }
