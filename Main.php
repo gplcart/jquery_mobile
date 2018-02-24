@@ -62,7 +62,11 @@ class Main
      */
     public function hookModuleInstallBefore(&$result)
     {
-        $this->checkJqueryVersion($result);
+        $library = $this->library->get('jquery');
+
+        if (empty($library['version']) || version_compare($library['version'], '1.8.0', '<')) {
+            $result = gplcart_text('Jquery Mobile requires Jquery >= 1.8.0');
+        }
     }
 
     /**
@@ -95,19 +99,6 @@ class Main
     public function hookModuleUninstallAfter()
     {
         $this->library->clearCache();
-    }
-
-    /**
-     * Check Jquery version
-     * @param mixed $result
-     */
-    protected function checkJqueryVersion(&$result)
-    {
-        $library = $this->library->get('jquery');
-
-        if (version_compare($library['version'], '1.8.0', '<')) {
-            $result = gplcart_text('Jquery Mobile requires Jquery >= 1.8.0');
-        }
     }
 
 }
