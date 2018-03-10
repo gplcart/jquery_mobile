@@ -12,8 +12,21 @@
   ],
   "license": "GPL-3.0-or-later",
   "require": {
-    "gplcart/composer-module-installer": "*"
+    "gplcart/composer-module-installer": "^1",
+    "assets/jquery_mobile": "1.4.5"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  "repositories": [
+    {
+      "type": "package",
+      "packagist.org": false,
+      "package": {
+        "name": "assets/jquery_mobile",
+        "version": "1.4.5",
+        "dist": {
+          "type": "zip",
+          "url": "http://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip"
+        }
+      }
+    }
+  ]
 }
