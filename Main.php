@@ -44,14 +44,10 @@ class Main
             'module' => 'jquery_mobile',
             'url' => 'http://jquerymobile.com',
             'download' => 'http://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip',
-            'version_source' => array(
-                'file' => 'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.js',
-                'pattern' => '/jQuery Mobile (\\d+\\.+\\d+\\.+\\d+)/',
-                'lines' => 2
-            ),
+            'version' => '1.4.5',
             'files' => array(
-                'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.js',
-                'vendor/jquery/jquery-mobile/jquery.mobile-1.4.5.min.css'
+                'jquery.mobile-1.4.5.min.js',
+                'jquery.mobile-1.4.5.min.css'
             ),
         );
     }
