@@ -3,8 +3,9 @@
 
 Jquery Mobile is a [GPL Cart](https://github.com/gplcart/gplcart) module that adds [Jquery Mobile](http://jquerymobile.com) library which can be used by other modules. Do not install unless your modules require it.
 
-
 **Installation**
 
-1. Download and extract to `system/modules` manually or using composer `composer require gplcart/jquery_mobile`. IMPORTANT: If you downloaded the module manually, be sure that the name of extracted module folder doesn't contain a branch/version suffix, e.g `-master`. Rename if needed.
+This module requires 3-d party library which should be downloaded separately. You have to use [Composer](https://getcomposer.org) to download all the dependencies.
+
+1. From your web root directory: `composer require gplcart/jquery_mobile`. If the module was downloaded and placed into `system/modules` manually, run `composer update` to make sure that all 3-d party files are presented in the `vendor` directory.
 2. Go to `admin/module/list` end enable the module
